@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { FormEvent } from 'react';
+import type { FormEvent, MouseEvent } from 'react';
 import { TaskData } from '../.types/TaskTypes';
 
 interface TaskFormProps {
@@ -14,7 +14,8 @@ const TaskForm: React.FC<TaskFormProps> = ({ addTask }) => {
         onAdd();
     }
 
-    const onAdd = () => {
+    const onAdd = (event?: MouseEvent<HTMLButtonElement>) => {
+        if (event) event.stopPropagation();
         if (title.trim() === '') return;
         addTask(title);
         setTitle('');
