@@ -22,19 +22,24 @@ const TaskForm: React.FC<TaskFormProps> = ({ addTask }) => {
     };
 
     return (
-        <div className=''>
-            <form className="px-20 flex" onSubmit={onSubmit}>
+        <div>
+            <form className='flex px-5 sm:px-20' onSubmit={onSubmit}>
                 <input
-                    className='w-full py-3 px-4 appearance-none border rounded-l focus:outline-none text-gray-700'
+                    className='w-full appearance-none border rounded-l focus:outline-none text-gray-700
+                        py-2 px-3
+                        sm:py-3 sm:px-4
+                    '
                     type="text"
                     placeholder="Enter New Task"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                 />
                 <button 
-                    className='bg-cyan-500 hover:bg-cyan-600 rounded-r text-white px-5 py-2 w-40'
+                    className='bg-cyan-500 hover:bg-cyan-600 rounded-r text-white w-40'
                     onClick={onAdd}
-                >Add Task</button>
+                >
+                    Add Task
+                </button>
             </form>
         </div>
     );

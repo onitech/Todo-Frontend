@@ -32,8 +32,11 @@ const Task: React.FC<TaskProps> = ({ task, onComplete, onUpdate, onDelete }) => 
     };
 
     return (
-        <div className='mx-20 my-0.5 flex'>
-            <div className="flex items-center w-full bg-white rounded-l px-5">
+        <div className='flex px-5 sm:px-20 my-0.5 sm:my-1'>
+            <div className='flex items-center bg-white rounded-l w-full
+                px-0 pl-2
+                sm:px-5 sm:pl-3
+            '>
                 <input 
                     type="checkbox" 
                     checked={task.completed}
@@ -49,7 +52,9 @@ const Task: React.FC<TaskProps> = ({ task, onComplete, onUpdate, onDelete }) => 
                     value={title}
                 />
             </div>
-            <button className='bg-red-500 hover:bg-red-600 rounded-r text-white px-5 py-2 w-30' onClick={handleDelete}>Delete</button>
+            <button 
+                className='bg-red-500 hover:bg-red-600 rounded-r text-white py-2 px-2 sm:px-5'
+                onClick={handleDelete}>Delete</button>
         </div>
     );
 };

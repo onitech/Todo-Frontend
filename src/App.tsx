@@ -19,9 +19,13 @@ const App = () => {
     }, []);
 
     return (
-        <div className="bg-[url('../public/BG.avif')] bg-cover bg-no-repeat bg-center h-screen w-full">
+        <div className="bg-[url('../public/BG.avif')] bg-cover bg-no-repeat bg-center h-screen w-full overflow-hidden">
             <div className='text-center flex items-center flex-col'>
-                <div className='container w-1/2 h-[900px] mt-20 shadow-2xl backdrop-blur-md bg-slate-50/10  rounded-md py-10'>
+                <div className='container shadow-2xl backdrop-blur-md bg-slate-50/10 rounded-md
+                    w-80 mt-10 py-1
+                    sm:w-10/12 sm:mt-20 sm:py-5
+                    xl:w-1/2
+                '>
                     <h1 className='text-4xl font-semibold text-slate-50 my-5'>TO DO LIST</h1>
                     <TaskForm addTask={(title) => handleAddTask(title, tasks, setTasks)} />
                     <TaskList

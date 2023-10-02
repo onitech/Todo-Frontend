@@ -25,7 +25,10 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onComplete, onUpdate, onDele
     );
 
     return (
-        <div className='container h-[600px] overflow-y-auto mt-20'>
+        <div className='container overflow-y-auto pb-[100px]
+            h-[700px] mt-7
+            sm:h-[600px] sm: mt-20
+        '>
             {showTaskList()}
         </div>
     );
