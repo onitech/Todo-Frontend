@@ -1,6 +1,8 @@
 import { TaskData } from '../.types/TaskTypes';
 
-const BASE_URL = 'http://localhost:3000/api/tasks';
+// const DEV_BASE_URL = 'http://localhost:3000/api/tasks';
+const PROD_BASE_URL = 'https://todo-backend-bay.vercel.app/api/tasks';
+const BASE_URL = PROD_BASE_URL;
 
 const fetchApi = async (url: string, options: RequestInit = {}): Promise<Response> => {
     try {
