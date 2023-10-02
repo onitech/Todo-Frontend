@@ -10,17 +10,23 @@ interface TaskListProps {
 }
 
 const TaskList: React.FC<TaskListProps> = ({ tasks, onComplete, onUpdate, onDelete }) => {
+    const showTaskList = () => tasks.length > 0 ? (
+        tasks.map((task) => (
+            <Task 
+                key={task._id} 
+                task={task} 
+                onComplete={onComplete} 
+                onUpdate={onUpdate}
+                onDelete={onDelete} 
+            />
+        ))
+    ) : (
+        <label className='text-white mt-10'>No Task</label>
+    );
+
     return (
         <div className='container h-[600px] overflow-y-auto mt-20'>
-            {tasks.map((task) => (
-                <Task 
-                    key={task._id} 
-                    task={task} 
-                    onComplete={onComplete} 
-                    onUpdate={onUpdate}
-                    onDelete={onDelete} 
-                />
-            ))}
+            {showTaskList()}
         </div>
     );
 };
