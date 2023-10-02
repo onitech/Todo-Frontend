@@ -1,7 +1,10 @@
 # Todo-Frontend
+Deployed here - https://todo-frontend-zeta-two.vercel.app/
+
+CI/CD with github via vercel
+
 
 ### Get Repository
-https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
 - git clone https://github.com/onitech/Todo-Frontend.git
 
 ### Setup
