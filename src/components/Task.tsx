@@ -23,8 +23,8 @@ const Task: React.FC<TaskProps> = ({ task, onComplete, onUpdate, onDelete }) => 
         
         if (newTitle.trim() === '') return;
 
-        onUpdate(task._id, event.target.value);
-        setTitle(event.target.value)
+        onUpdate(task._id, newTitle);
+        setTitle(newTitle)
     }
 
     const handleDelete = () => {
