@@ -10,6 +10,7 @@ CI/CD with github via vercel
 ### Setup
 - npm i
 - npm start (note: this should run on port 3001)
+- Go to api.ts > change `isProd` to `false`
 
 ### Git commands used 
 - git pull origin main
