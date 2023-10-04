@@ -23,39 +23,17 @@ const TaskHelper = {
         }
     },
     
-    async handleCompleteTask(
-        id: TaskData['_id'], 
-        completed: TaskData['completed'],
-        tasks: TaskData[],
-        setTasks: setTasksType
-    ) {
-        try {
-            const updatedTask: TaskData = await updateTask(id, {completed});
-            const newTaskList = tasks.filter((task) => { 
-                if (task._id === id) {
-                    task.completed = updatedTask.completed;
-                }
-    
-                return task;
-            });
-
-            setTasks(newTaskList);
-        } catch (error) {
-            console.error('Error Updating task:', error)
-        }
-    },
-
     async handleUpdateTask(
         id: TaskData['_id'], 
-        title: TaskData['title'],
+        updateData: Partial<TaskData>,
         tasks: TaskData[],
         setTasks: setTasksType
     ) {
         try {
-            const updatedTask: TaskData = await updateTask(id, {title});
-            const newTaskList = tasks.filter((task) => { 
+            const updatedTask: TaskData = await updateTask(id, updateData);
+            const newTaskList = tasks.map((task) => { 
                 if (task._id === id) {
-                    task.title = updatedTask.title;
+                    return { ...task, ...updatedTask };
                 }
     
                 return task;
