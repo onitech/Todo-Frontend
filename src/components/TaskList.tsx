@@ -4,18 +4,16 @@ import { TaskData } from '../.types/TaskTypes';
 
 interface TaskListProps {
     tasks: TaskData[];
-    onComplete: (id: TaskData['_id'], completed: TaskData['completed']) => void;
-    onUpdate: (id: TaskData['_id'], title: TaskData['title']) => void;
+    onUpdate: (id: TaskData['_id'], updateData: Partial<TaskData>) => void;
     onDelete: (id: TaskData['_id']) => void;
 }
 
-const TaskList: React.FC<TaskListProps> = ({ tasks, onComplete, onUpdate, onDelete }) => {
+const TaskList: React.FC<TaskListProps> = ({ tasks, onUpdate, onDelete }) => {
     const showTaskList = () => tasks.length > 0 ? (
         tasks.map((task) => (
             <Task 
                 key={task._id} 
                 task={task} 
-                onComplete={onComplete} 
                 onUpdate={onUpdate}
                 onDelete={onDelete} 
             />

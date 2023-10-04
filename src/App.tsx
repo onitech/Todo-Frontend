@@ -8,7 +8,6 @@ const App = () => {
     const { 
         getAllTask, 
         handleAddTask, 
-        handleCompleteTask, 
         handleUpdateTask, 
         handleDeleteTask 
     } = TaskHelper;
@@ -30,8 +29,7 @@ const App = () => {
                     <TaskForm addTask={(title) => handleAddTask(title, tasks, setTasks)} />
                     <TaskList
                         tasks={tasks}
-                        onComplete={(id, completed) => handleCompleteTask(id, completed, tasks, setTasks)}
-                        onUpdate={(id, title) => handleUpdateTask(id, title, tasks, setTasks)}
+                        onUpdate={(id, updateData) => handleUpdateTask(id, updateData, tasks, setTasks)}
                         onDelete={(id) => handleDeleteTask(id, tasks, setTasks)}
                     />
                 </div>

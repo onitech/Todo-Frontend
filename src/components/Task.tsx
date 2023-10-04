@@ -4,27 +4,26 @@ import { TaskData } from '../.types/TaskTypes';
 
 interface TaskProps {
     task: TaskData;
-    onComplete: (id: TaskData['_id'], completed: TaskData['completed']) => void;
-    onUpdate: (id: TaskData['_id'], title: TaskData['title']) => void;
+    onUpdate: (id: TaskData['_id'], updateData: Partial<TaskData>) => void;
     onDelete: (id: TaskData['_id']) => void;
 }
 
-const Task: React.FC<TaskProps> = ({ task, onComplete, onUpdate, onDelete }) => {
+const Task: React.FC<TaskProps> = ({ task, onUpdate, onDelete }) => {
     const [title, setTitle] = useState(task.title);
 
     const addTextDecoration = task.completed ? 'line-through bg-white' : '';
 
     const handleComplete = () => {
-        onComplete(task._id, !task.completed);
+        onUpdate(task._id, { completed: !task.completed });
     };
 
     const handleUpdate = (event: ChangeEvent<HTMLInputElement>) => {
-        const newTitle = event.target.value;
+        const title = event.target.value;
         
-        if (newTitle.trim() === '') return;
+        if (title.trim() === '') return;
 
-        onUpdate(task._id, newTitle);
-        setTitle(newTitle)
+        onUpdate(task._id, { title });
+        setTitle(title)
     }
 
     const handleDelete = () => {

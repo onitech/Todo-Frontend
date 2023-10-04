@@ -43,10 +43,7 @@ export const addTask = async (title: TaskData['title']): Promise<TaskData> => {
 
 export const updateTask = async (
     id: TaskData['_id'], 
-    value: {
-        completed?: TaskData['completed']
-        title?: TaskData['title']
-    }
+    value: Partial<TaskData>
 ): Promise<TaskData> => {
     const url = `${BASE_URL}/${id}`;
     const options: RequestInit = {
